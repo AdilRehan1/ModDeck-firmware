@@ -1,4 +1,3 @@
-// matrix.h
 // Rows x columns matrix scanning for the main tactile keypad.
 // Instead of one GPIO per key (16 pins for 16 keys), this uses
 // MATRIX_ROWS + MATRIX_COLS pins (4 + 4 = 8) and scans row-by-row.
@@ -16,11 +15,7 @@ typedef void (*matrix_event_cb_t)(uint8_t row, uint8_t col, bool pressed);
 void matrix_init(void);
 
 // Call frequently from the main loop (every MATRIX_SCAN_INTERVAL_MS is enough).
-// Scans the full matrix once, debounces, and fires cb for each state change.
 void matrix_task(matrix_event_cb_t cb);
-
-// Optional: HID keycode lookup table for each (row, col). Defined in matrix.c —
-// edit this to match your keycap legend.
 uint8_t matrix_keycode(uint8_t row, uint8_t col);
 
-#endif // MATRIX_H
+#endif
